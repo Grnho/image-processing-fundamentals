@@ -12,9 +12,7 @@ plt.hist(img.flat, bins=100, range=(0,1))
 plt.xlabel("Pixel Intensity")
 plt.ylabel("Frequency")
 plt.title("Image Histogram")
-
 plt.show()
-
 
 sigma_est = np.mean(estimate_sigma(img, channel_axis = None))
 denoise_img = denoise_nl_means(img, h=1.15 * sigma_est, fast_mode=True,
@@ -22,7 +20,6 @@ denoise_img = denoise_nl_means(img, h=1.15 * sigma_est, fast_mode=True,
 
 
 from skimage import exposure
-
 
 plt.figure(figsize=(6,4))
 
