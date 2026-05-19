@@ -1,1 +1,51 @@
-import cv2from matplotlib import pyplot as pltimg = cv2.imread("../data/RGBY.jpg", 1)print(img.shape)# print("Top Left", img[0,0])# print("Top Right", img[0,400])# print("Bottom Left", img[500,0])# print("Bottom Right", img[500,400])blue = img[:,:,0]#BGR first channel all HxWgreen = img[:,:,1]red = img[:,:,2]#blue, green, red = cv2.split(img)plt.figure(figsize=(12,4))plt.subplot(1,3,1)plt.imshow(blue, cmap='gray')plt.title("Blue Channel")plt.subplot(1,3,2)plt.imshow(green, cmap='gray')plt.title("Green Channel")plt.subplot(1,3,3)plt.imshow(red, cmap='gray')plt.title("Red Channel")plt.show()plt.figure(figsize = (12,4))merged = cv2.merge((blue, green, red))plt.subplot(1,1,1)plt.imshow(merged, cmap='gray')plt.title("Merged Channel")img2 = cv2.imread("../data/monkey.jpg", 1)resized = cv2.resize(img2, None, fx =2, fy =2, interpolation = cv2.INTER_CUBIC)#2 times in x and yplt.figure(figsize=(12,4))plt.subplot(1,3,1)plt.imshow(img2)plt.title("Original Image")plt.subplot(1,3,2)plt.imshow(resized)plt.title("Resized Image")print(img2.shape)print(resized.shape)
+import cv2
+from matplotlib import pyplot as plt
+img = cv2.imread("../data/RGBY.jpg", 1)
+print(img.shape)
+
+# print("Top Left", img[0,0])
+# print("Top Right", img[0,400])
+# print("Bottom Left", img[500,0])
+# print("Bottom Right", img[500,400])
+
+blue = img[:,:,0]#BGR first channel all HxW
+green = img[:,:,1]
+red = img[:,:,2]
+#blue, green, red = cv2.split(img)
+
+plt.figure(figsize=(12,4))
+
+plt.subplot(1,3,1)
+plt.imshow(blue, cmap='gray')
+plt.title("Blue Channel")
+
+plt.subplot(1,3,2)
+plt.imshow(green, cmap='gray')
+plt.title("Green Channel")
+
+plt.subplot(1,3,3)
+plt.imshow(red, cmap='gray')
+plt.title("Red Channel")
+
+plt.show()
+
+plt.figure(figsize = (12,4))
+merged = cv2.merge((blue, green, red))
+plt.subplot(1,1,1)
+plt.imshow(merged, cmap='gray')
+plt.title("Merged Channel")
+
+img2 = cv2.imread("../data/monkey.jpg", 1)
+
+resized = cv2.resize(img2, None, fx =2, fy =2, interpolation = cv2.INTER_CUBIC)
+#2 times in x and y
+plt.figure(figsize=(12,4))
+plt.subplot(1,3,1)
+plt.imshow(img2)
+plt.title("Original Image")
+
+plt.subplot(1,3,2)
+plt.imshow(resized)
+plt.title("Resized Image")
+print(img2.shape)
+print(resized.shape)
