@@ -4,7 +4,6 @@ from skimage.filters.rank import entropy
 from skimage.morphology import disk
 import numpy as np
 from skimage.filters import threshold_otsu
-
 import glob
 time = 0
 time_list = []
